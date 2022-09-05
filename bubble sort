@@ -1,0 +1,14 @@
+def se(arr):
+    x=len(arr)
+    for i in range(x-1):
+        for j in range(0,x-i-1):
+            if arr[j]>arr[j+1]:
+                arr[j],arr[j+1]=arr[j+1],arr[j]
+    
+arr=list(map(int,input().split()))
+print(arr)
+se(arr)
+print("{} is sorted array".format(arr))
+
+
+#time complexity-----O(n^2)
