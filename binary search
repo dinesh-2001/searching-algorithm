@@ -1,0 +1,24 @@
+def se(arr,right,left,x):
+    if(right>= left):
+        mid=left+(right-left)//2
+        if(arr[mid]==x):
+            return mid
+        if(arr[mid]>x):
+            return se(arr,mid-1,left,x)
+        else:
+            return se(arr,mid+1,left,x)
+    else:
+        return -1
+arr=list(map(int,input().split()))
+right=len(arr)-1
+arr.sort()
+print(arr)
+x=int(input())
+result=se(arr,right,0,x)
+if result == -1:
+    print("{} is not found".format(x))
+else:
+    print("{} was found in {} index".format(x,result))
+    
+    
+    #time complexity----O(log n)
