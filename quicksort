@@ -1,0 +1,23 @@
+def partition(arr,low,high):
+    swapindex=low-1
+    pivote=arr[high]
+    for i in range(low,high):
+        if(arr[i]<pivote):
+            swapindex+=1
+            arr[swapindex],arr[i]=arr[i],arr[swapindex]
+    arr[swapindex+1],arr[high]=arr[high],arr[swapindex+1]
+    return swapindex+1
+def quicksort(arr,low,high):
+    if(low<high):
+        indexpi=partition(arr,low,high)
+        quicksort(arr,low,indexpi-1)
+        quicksort(arr,indexpi+1,high)
+arr=[int(i) for i in input().split()]
+n=len(arr)
+quicksort(arr,0,n-1)
+print(arr)
+
+
+TIME COMPLEXCITY------O(NlogN)
+
+SPACE COMPLEXCITY------O(1)
